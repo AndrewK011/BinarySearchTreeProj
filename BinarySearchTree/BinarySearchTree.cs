@@ -51,16 +51,13 @@ namespace BinarySearchTree
                     }
                 }
             }
-
-
             tree.Add(nodeToAdd);
-
         }
         public void Search(int nodeDataToFind)
         {
             current = root;
             bool dataFound = false;
-            while (!dataFound)
+            while (!dataFound && current != null)
             {
                 if (nodeDataToFind > current.Data)
                 {
@@ -71,15 +68,10 @@ namespace BinarySearchTree
                 {
                     current = current.leftChildNode;
                 }
-                else if(nodeDataToFind == current.Data)
+                else
                 {
                     dataFound = true;                  
                 }
-                else
-                {
-                    break;
-                }
-
             }
 
             if(dataFound)
@@ -91,7 +83,6 @@ namespace BinarySearchTree
             {
                 Console.WriteLine($"{nodeDataToFind} was not in the tree!");
             }
-            Console.ReadLine();
         }
     }
 }
