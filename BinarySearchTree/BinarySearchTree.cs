@@ -8,7 +8,7 @@ namespace BinarySearchTree
 {
     class BinarySearchTree
     {
-        List<Node> tree = new List<Node>();
+        
         Node root;
         Node current;
         
@@ -23,13 +23,13 @@ namespace BinarySearchTree
             else
             {
                 current = root;
-                while (nodeToAdd.parent == null)
+                while (!nodeToAdd.hasParent)
                 {
                     if (nodeToAdd.Data <= current.Data)
                     {
                         if (current.leftChildNode == null)
-                        {
-                            nodeToAdd.parent = current;
+                        {                         
+                            nodeToAdd.hasParent = true;
                             current.leftChildNode = nodeToAdd;
                         }
                         else
@@ -40,8 +40,8 @@ namespace BinarySearchTree
                     else
                     {
                         if(current.rightChildNode == null)
-                        {
-                            nodeToAdd.parent = current;
+                        {                          
+                            nodeToAdd.hasParent = true;
                             current.rightChildNode = nodeToAdd;
                         }
                         else
@@ -51,7 +51,7 @@ namespace BinarySearchTree
                     }
                 }
             }
-            tree.Add(nodeToAdd);
+            
         }
         public void Search(int nodeDataToFind)
         {
